@@ -1,4 +1,4 @@
-package vote.golos.electionobserver.Entities;
+package vote.golos.electionobserver.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
