@@ -8,13 +8,6 @@ ALTER SEQUENCE election.observer_observer_id_seq RESTART WITH 1;
 ALTER SEQUENCE election.station_id_seq RESTART WITH 1;
 ALTER SEQUENCE election.campaign_campaign_id_seq RESTART WITH 1;
 
-INSERT INTO election.observer (activity,birth,commission,education,f_name,l_name,m_name,phone)
-VALUES
-('Студент','2000-03-01',null,'н/высшее','Иванов','Иван','Иванович','+79155542222'),
-('Студент','1988-06-13',null,'высшее','Берг','Василий',null,'+79155542223'),
-('Студент','2002-03-01',null,'среднее общее','Лоскутов','Дмитрий','Алексеевич','+79155542224'),
-('Студент','1999-03-01',null,'н/высшее','Листов','Андрей','Максимович','+79155542225');
-
 INSERT INTO election.region (name,rank,parent_region_id)
 VALUES
 ('Российская Федерация',0,null),
@@ -34,4 +27,21 @@ INSERT INTO election.station (number,city_region_id,address,name,parent_id) VALU
 INSERT INTO election.campaign(short_name,name,start_date,end_date,region_id) VALUES
 ('ГД 2021','Выборы в Госдуму XII созыва','2021-09-17','2021-09-19',1),
 ('МГД 2024','Выборы в Московскую городскую думу 2024','2024-09-08','2024-09-08',2),
-('Поправки в конституцию','Голосование по поправкам в конституцию 2020','2020-06-25','2020-07-01',1);
+('Поправки в конституцию','Голосование по поправкам в конституцию 2020','2020-06-25','2020-07-01',5);
+
+INSERT INTO election.observer (activity,birth,commission,education,f_name,l_name,m_name,phone,region_region_id)
+VALUES
+('Студент','2000-03-01',null,'н/высшее','Иванов','Иван','Иванович','+79155542222',2),
+('Студент','1988-06-13',null,'высшее','Берг','Василий',null,'+79155542223',2),
+('Студент','2002-03-01',null,'среднее общее','Лоскутов','Дмитрий','Алексеевич','+79155542224',3),
+('Студент','1999-03-01',null,'н/высшее','Листов','Андрей','Максимович','+79155542225',5);
+
+INSERT INTO election.party(name,short_name) VALUES
+('Комунистическая партия Российской Федерации','КПРФ'),
+('Партия ЯБЛОКО','Яблоко'),
+('Справедливая россия','СР');
+
+INSERT INTO election.candidate(name) VALUES
+('Лобанов Михаил'),
+('Ильян Яков'),
+('Ирина Жданова');

@@ -11,9 +11,9 @@ public interface CampaignRepos extends JpaRepository<Campaign,Long> {
     @EntityGraph(
             type = EntityGraph.EntityGraphType.FETCH,
             attributePaths = {
-                    "region"
+                    "region",
+                    "region.parent"
             }
     )
     List<Campaign> findAll();
-    Campaign getById(long id);
 }

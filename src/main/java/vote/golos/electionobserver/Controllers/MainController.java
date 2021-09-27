@@ -4,17 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vote.golos.electionobserver.Entities.Campaign;
-import vote.golos.electionobserver.Entities.Observer;
-import vote.golos.electionobserver.Entities.Region;
-import vote.golos.electionobserver.Entities.Station;
-import vote.golos.electionobserver.Service.Interface.CampaignServiceInterface;
-import vote.golos.electionobserver.Service.Interface.RegionServiceInterface;
-import vote.golos.electionobserver.Service.Interface.StationServiceInterface;
+import vote.golos.electionobserver.Entities.*;
+import vote.golos.electionobserver.Service.Interface.*;
 import vote.golos.electionobserver.dto.Response;
-import vote.golos.electionobserver.Service.Interface.ObserverServiceInterface;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api")
@@ -27,7 +22,10 @@ public class MainController {
     StationServiceInterface stations;
     @Autowired
     CampaignServiceInterface campaigns;
-
+    @Autowired
+    CandidateServiceInterface candidates;
+    @Autowired
+    PartyServiceInterface parties;
     @RequestMapping(value="/observer", method = RequestMethod.GET)
     public ResponseEntity<Response<List<Observer>>> getObservers(){
         return new ResponseEntity<>(new Response<>("",observers.getAll()), HttpStatus.OK);
@@ -59,8 +57,15 @@ public class MainController {
         return new ResponseEntity<>(new Response<>("",campaigns.getAll()), HttpStatus.OK);
     }
     @RequestMapping(value="/campaign/{campaign_id}", method = RequestMethod.GET)
-    public ResponseEntity<Response<Campaign>> getCampaignById(@PathVariable long campaign_id){
+    public ResponseEntity<Response<Optional<Campaign>>> getCampaignById(@PathVariable long campaign_id){
         return new ResponseEntity<>(new Response<>("",campaigns.getCampaign(campaign_id)), HttpStatus.OK);
     }
-
+    @RequestMapping(value="/candidate", method = RequestMethod.GET)
+    public ResponseEntity<Response<List<Candidate>>> getCandidates(){
+        return new ResponseEntity<>(new Response<>("",candidates.getAll()), HttpStatus.OK);
+    }
+    @RequestMapping(value="/party", method = RequestMethod.GET)
+    public ResponseEntity<Response<List<Party>>> getParties(){
+        return new ResponseEntity<>(new Response<>("",parties.getAll()), HttpStatus.OK);
+    }
 }

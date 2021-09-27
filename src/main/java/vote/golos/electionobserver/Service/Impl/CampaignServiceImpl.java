@@ -7,6 +7,7 @@ import vote.golos.electionobserver.Repos.CampaignRepos;
 import vote.golos.electionobserver.Service.Interface.CampaignServiceInterface;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CampaignServiceImpl implements CampaignServiceInterface {
@@ -18,8 +19,8 @@ public class CampaignServiceImpl implements CampaignServiceInterface {
     }
 
     @Override
-    public Campaign getCampaign(long id) {
-        return repos.getById(id);
+    public Optional<Campaign> getCampaign(long id) {
+        return repos.findById(id);
     }
 
     @Override

@@ -31,9 +31,11 @@ public class Observer {
     private String education;
     private String activity;
     private String commission;
+    @ManyToOne
+    @JoinColumn
+    private Region region;
 
-
-    public Observer(String f_name, String l_name, String m_name, String phone, Date birth, String education, String activity, String commission) {
+    public Observer(String f_name, String l_name, String m_name, String phone, Date birth, String education, String activity, String commission,Region region) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.m_name = m_name;
@@ -42,6 +44,7 @@ public class Observer {
         this.education = education;
         this.activity = activity;
         this.commission = commission;
+        this.region = region;
     }
 
     public Observer() {
