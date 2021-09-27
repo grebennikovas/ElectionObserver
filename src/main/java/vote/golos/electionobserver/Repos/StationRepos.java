@@ -11,8 +11,16 @@ public interface StationRepos extends JpaRepository<Station,Long> {
     @EntityGraph(
             type = EntityGraph.EntityGraphType.FETCH,
             attributePaths = {
-                    "parent"
+                    "parent",
+                    "city.parent"
             }
     )
     List<Station> findByParent(Station Parent);
+    @EntityGraph(
+            type = EntityGraph.EntityGraphType.FETCH,
+            attributePaths = {
+                    "city.parent"
+            }
+    )
+    List<Station> findAllBy();
 }

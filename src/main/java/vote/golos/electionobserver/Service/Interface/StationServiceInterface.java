@@ -8,4 +8,5 @@ import java.util.List;
 public interface StationServiceInterface {
     Station addStation(Station station);
     List<Station> getStationByParent(Station parent);
+    List<Station> getStation();
 }

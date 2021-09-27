@@ -21,4 +21,9 @@ public class StationServiceImpl implements StationServiceInterface {
     public List<Station> getStationByParent(Station parent) {
         return repos.findByParent(parent);
     }
+
+    @Override
+    public List<Station> getStation() {
+        return repos.findAllBy();
+    }
 }

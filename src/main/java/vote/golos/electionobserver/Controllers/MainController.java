@@ -6,7 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vote.golos.electionobserver.Entities.Observer;
 import vote.golos.electionobserver.Entities.Region;
+import vote.golos.electionobserver.Entities.Station;
 import vote.golos.electionobserver.Service.Interface.RegionServiceInterface;
+import vote.golos.electionobserver.Service.Interface.StationServiceInterface;
 import vote.golos.electionobserver.dto.Response;
 import vote.golos.electionobserver.Service.Interface.ObserverServiceInterface;
 
@@ -19,6 +21,8 @@ public class MainController {
     ObserverServiceInterface observers;
     @Autowired
     RegionServiceInterface regions;
+    @Autowired
+    StationServiceInterface stations;
 
     @RequestMapping(value="/observer", method = RequestMethod.GET)
     public ResponseEntity<Response<List<Observer>>> getObservers(){
@@ -35,6 +39,16 @@ public class MainController {
         Region r = new Region();
         r.setRegion_id(region_id);
         return new ResponseEntity<>(new Response<>("",regions.getCitiesOfRegion(r)), HttpStatus.OK);
+    }
+    @RequestMapping(value="/station", method = RequestMethod.GET)
+    public ResponseEntity<Response<List<Station>>> getStations(){
+        return new ResponseEntity<>(new Response<>("",stations.getStation()), HttpStatus.OK);
+    }
+    @RequestMapping(value="/station/{station_id}/station", method = RequestMethod.GET)
+    public ResponseEntity<Response<List<Station>>> getStationByParent(@PathVariable long station_id){
+        Station s = new Station();
+        s.setId(station_id);
+        return new ResponseEntity<>(new Response<>("",stations.getStationByParent(s)), HttpStatus.OK);
     }
 
 }

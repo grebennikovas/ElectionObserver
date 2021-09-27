@@ -17,12 +17,10 @@ public class Station {
     @ManyToOne
     @JoinColumn
     private Region city;
-    @Column(nullable = false,length = 150)
+    @Column(nullable = false, length = 150)
     private String address;
-    @Column(nullable = false,length = 150)
+    @Column(nullable = false, length = 150)
     private String name;
-    @Enumerated(EnumType.STRING)
-    private StationLevel level;
     @ManyToOne
     @JoinColumn
     private Station parent;
@@ -33,12 +31,6 @@ public class Station {
         this.address = address;
         this.name = name;
         this.parent = parent;
-        if (parent == null){
-            level = StationLevel.TIK;
-        }
-        else{
-            level = StationLevel.UIK;
-        }
     }
 
     public Station() {

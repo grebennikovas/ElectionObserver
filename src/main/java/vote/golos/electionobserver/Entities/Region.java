@@ -23,10 +23,9 @@ public class Region {
     private int rank;
     @ManyToOne
     @JoinColumn
-    @JsonIgnore
     private Region parent;
-    //@OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
-    //private List<Region> children;
+    /*@OneToMany(mappedBy = "parent")
+    private List<Region> children;*/
 
     public Region(String name, Region parent) {
         this.name = name;

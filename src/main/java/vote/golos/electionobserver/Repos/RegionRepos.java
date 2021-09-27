@@ -6,17 +6,18 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RestController;
 import vote.golos.electionobserver.Entities.Region;
 
+import javax.transaction.Transactional;
 import java.util.List;
 @Repository
 public interface RegionRepos extends JpaRepository<Region,Long> {
     @EntityGraph(
             type = EntityGraph.EntityGraphType.FETCH,
             attributePaths = {
-                    "parent"
+                    "parent",
+                    "parent.parent"
             }
     )
     List<Region> findByParent(Region Parent);
-
     @EntityGraph(
             type = EntityGraph.EntityGraphType.FETCH,
             attributePaths = {
