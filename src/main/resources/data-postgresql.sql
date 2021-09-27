@@ -1,10 +1,12 @@
 TRUNCATE TABLE election.observer cascade;
 TRUNCATE TABLE election.region cascade;
 TRUNCATE TABLE election.station cascade;
+TRUNCATE TABLE election.campaign cascade;
 
 ALTER SEQUENCE election.region_region_id_seq RESTART WITH 1;
 ALTER SEQUENCE election.observer_observer_id_seq RESTART WITH 1;
 ALTER SEQUENCE election.station_id_seq RESTART WITH 1;
+ALTER SEQUENCE election.campaign_campaign_id_seq RESTART WITH 1;
 
 INSERT INTO election.observer (activity,birth,commission,education,f_name,l_name,m_name,phone)
 VALUES
@@ -28,3 +30,8 @@ INSERT INTO election.station (number,city_region_id,address,name,parent_id) VALU
 (2563,2,'Кутузовский пр, д 15/3','Участковая избирательная комиссия №2563',1),
 (2550,2,'Студенческая ул, д 55','Участковая избирательная комиссия №2550',2),
 (222,5,'Липецкая ул, д 1','Участковая избирательная комиссия №222',1);
+
+INSERT INTO election.campaign(short_name,name,start_date,end_date,region_id) VALUES
+('ГД 2021','Выборы в Госдуму XII созыва','2021-09-17','2021-09-19',1),
+('МГД 2024','Выборы в Московскую городскую думу 2024','2024-09-08','2024-09-08',2),
+('Поправки в конституцию','Голосование по поправкам в конституцию 2020','2020-06-25','2020-07-01',1);
