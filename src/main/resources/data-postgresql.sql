@@ -2,11 +2,17 @@ TRUNCATE TABLE election.observer cascade;
 TRUNCATE TABLE election.region cascade;
 TRUNCATE TABLE election.station cascade;
 TRUNCATE TABLE election.campaign cascade;
+TRUNCATE TABLE election.party cascade;
+TRUNCATE TABLE election.candidate cascade;
+TRUNCATE TABLE election.district cascade;
 
 ALTER SEQUENCE election.region_region_id_seq RESTART WITH 1;
 ALTER SEQUENCE election.observer_observer_id_seq RESTART WITH 1;
 ALTER SEQUENCE election.station_id_seq RESTART WITH 1;
 ALTER SEQUENCE election.campaign_campaign_id_seq RESTART WITH 1;
+ALTER SEQUENCE election.candidate_candidate_id_seq RESTART WITH 1;
+ALTER SEQUENCE election.party_party_id_seq RESTART WITH 1;
+ALTER SEQUENCE election.district_district_id_seq RESTART WITH 1;
 
 INSERT INTO election.region (name,rank,parent_region_id)
 VALUES

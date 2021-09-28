@@ -1,6 +1,5 @@
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
-import getData from './Functions'
 
 export class Observers extends React.Component {
 
@@ -43,10 +42,10 @@ export class Observers extends React.Component {
         return(
             <div style={{ height: 400, width: 'auto' }}>
                 <h1>Наблюдатели</h1>
-                <DataGrid
+                {/*<DataGrid
                     rows={this.state.observers}
                     columns={columns}
-                />
+                />*/}
             </div>
         )
         else

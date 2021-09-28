@@ -1,12 +1,17 @@
 // npm run-script watch
-
 'use strict';
 const React = require('react');
 const ReactDOM = require('react-dom');
-import { Observers } from './observers';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import { MainLayot } from './Layot/Main';
 
 
-class App extends React.Component {
+export class App extends React.Component {
 
     constructor(props) {
         super(props);
@@ -17,12 +22,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <Observers/>
+            <MainLayot/>
         )
     }
 }
-
-ReactDOM.render(
-    <App />,
-    document.getElementById('react')
-)
