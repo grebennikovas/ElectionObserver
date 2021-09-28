@@ -33,14 +33,17 @@ export class Page extends React.Component {
                         </ul>
                     </nav>
                     <Switch>
-                        <Route path="/about">
+                        <Route exact path="/about">
                             <h1>О нас</h1>
                         </Route>
-                        <Route path="/observers">
+                        <Route exact path="/observers">
                             <ObserversPage />
                         </Route>
-                        <Route path="/">
+                        <Route exact path="/">
                             <IndexPage />
+                        </Route>
+                        <Route>
+                            <h1>404 - Странца не найдена</h1>
                         </Route>
                     </Switch>
                 </div>
