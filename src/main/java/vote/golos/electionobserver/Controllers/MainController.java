@@ -26,6 +26,8 @@ public class MainController {
     CandidateServiceInterface candidates;
     @Autowired
     PartyServiceInterface parties;
+    @Autowired
+    DistrictServiceInterface districts;
     @RequestMapping(value="/observer", method = RequestMethod.GET)
     public ResponseEntity<Response<List<Observer>>> getObservers(){
         return new ResponseEntity<>(new Response<>("",observers.getAll()), HttpStatus.OK);
@@ -67,5 +69,9 @@ public class MainController {
     @RequestMapping(value="/party", method = RequestMethod.GET)
     public ResponseEntity<Response<List<Party>>> getParties(){
         return new ResponseEntity<>(new Response<>("",parties.getAll()), HttpStatus.OK);
+    }
+    @RequestMapping(value="/district", method = RequestMethod.GET)
+    public ResponseEntity<Response<List<District>>> getDistrict(){
+        return new ResponseEntity<>(new Response<>("",districts.getAll()), HttpStatus.OK);
     }
 }

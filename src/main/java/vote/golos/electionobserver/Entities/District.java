@@ -10,15 +10,19 @@ import javax.persistence.*;
 @Data
 @ToString
 @NoArgsConstructor
-public class Candidate {
+public class District {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "candidate_id")
+    @Column(name = "district_id")
     private Long id;
-    @Column(nullable = false, length = 150)
+    @Column(length = 250)
     private String name;
-
-    public Candidate(String name) {
-        this.name = name;
-    }
+    @Column(nullable = false)
+    private int number;
+    @ManyToOne
+    @JoinColumn
+    private Region region;
+    @ManyToOne
+    @JoinColumn
+    private Campaign campaign;
 }
