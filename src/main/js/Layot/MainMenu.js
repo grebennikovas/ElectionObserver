@@ -14,8 +14,11 @@ import StarBorder from '@mui/icons-material/StarBorder';
 import ListItem from "@mui/material/ListItem";
 import MailIcon from "@mui/icons-material/Mail";
 import Divider from "@mui/material/Divider";
+import {Link as RouterLink, BrowserRouter, Route, Switch} from "react-router-dom"
+import {ObserversPage} from "../Pages/Observers";
+import {IndexPage} from "../Pages/IndexPage";
 
-export default function NestedList() {
+export default function MainMenu() {
     const [open, setOpen] = React.useState(true);
 
     const handleClick = () => {
@@ -25,14 +28,8 @@ export default function NestedList() {
     return (
         <>
             <List>
-                {['Главная', 'Статус', 'Справочники', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItemLink to="/" primary="Главная" icon={<InboxIcon />} />
+                <ListItemLink to="/observers" primary="Наблюдатели" icon={<InboxIcon />} />
             </List>
             <Divider/>
             <List
@@ -48,27 +45,34 @@ export default function NestedList() {
                 </ListItemButton>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Участки" />
-                        </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Кампании" />
-                        </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Регионы" />
-                        </ListItemButton>
+                        <ListItemLink to="/" primary="Участки" icon={<InboxIcon />} />
+                        <ListItemLink to="/" primary="Кампании" icon={<InboxIcon />} />
+                        <ListItemLink to="/" primary="Регионы" icon={<InboxIcon />} />
                     </List>
                 </Collapse>
             </List>
         </>
+    );
+}
+
+function ListItemLink(props) {
+    const { icon, primary, to } = props;
+
+    const renderLink = React.useMemo(
+        () =>
+            React.forwardRef(function Link(itemProps, ref) {
+                return <RouterLink to={to} ref={ref} {...itemProps} role={undefined} />;
+            }),
+        [to],
+    );
+
+    return (
+        <li>
+            <ListItem button component={renderLink}>
+                {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+                {}
+                <ListItemText primary={primary} />
+            </ListItem>
+        </li>
     );
 }

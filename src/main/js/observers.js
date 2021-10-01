@@ -1,5 +1,5 @@
 import React from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import DataGrid from 'react-data-grid'
 
 export class Observers extends React.Component {
 
@@ -33,23 +33,25 @@ export class Observers extends React.Component {
 
     render() {
         const columns = [
-            { field: 'id', headerName: 'ID', minWidth: 10,flex: 0.2 },
-            { field: 'l_name', headerName: 'Фамилия', minWidth: 50,flex: 0.2, editable: true },
-            { field: 'f_name', headerName: 'Имя', minWidth: 50,flex: 0.2, editable: true },
-            { field: 'm_name', headerName: 'Отчество', minWidth: 50,flex: 0.2, editable: true },
-            { field: 'phone', headerName: 'Телефон', minWidth: 50,flex: 0.2, editable: true }]
+            { key: 'id', name: 'ID', resizable: true, width: 10 },
+            { key: 'l_name', name: 'Фамилия', resizable: true, width: 200},
+            { key: 'f_name', name: 'Имя', resizable: true, width: 150},
+            { key: 'm_name', name: 'Отчество', resizable: true, width: 150},
+            { key: 'phone', name: 'Телефон', resizable: false, width: "auto"}]
         if (this.state.isLoaded)
         return(
-            <div style={{ height: 400, width: 'auto' }}>
+            <div style={{ width: '800px' }}>
                 <h1>Наблюдатели</h1>
-                {/*<DataGrid
+                <DataGrid
                     rows={this.state.observers}
                     columns={columns}
-                />*/}
+                    style={{ height: "100%", contain: "none",borderBottom:"0",borderRight:"0"}}
+                    headerRowHeight={40}
+                />
             </div>
         )
         else
-            return <div style={{ height: 400, width: 'auto' }}>
+            return <div style={{ width: 'auto' }}>
                 <h1>Загрузка</h1>
             </div>
     }

@@ -1,6 +1,25 @@
 import * as React from 'react';
-import {Observers} from "../observers";
+import {
+    createTheme,
+    responsiveFontSizes,
+    ThemeProvider,
+} from '@mui/material/styles';
+import Typography from "@mui/material/Typography";
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from "@mui/material/Box";
+import "@fontsource/montserrat"
 
+let theme = createTheme({
+    typography: {
+        h2: {
+            fontSize: '1.5 rem',
+            fontWeight: 400,
+            lineHeight: 1.5,
+        },
+        fontFamily: 'Montserrat'
+    }
+});
+theme = responsiveFontSizes(theme);
 
 export class IndexPage extends React.Component {
 
@@ -13,7 +32,16 @@ export class IndexPage extends React.Component {
 
     render() {
         return (
-            <h1>Главная</h1>
+            <ThemeProvider theme={theme}>
+                <CssBaseline/>
+                <Box sx={{
+                    fontFamily: 'Montserrat',
+                }}>
+                    <Typography component="div" gutterBottom variant="h2" >
+                        Blog
+                    </Typography>
+                </Box>
+            </ThemeProvider>
         )
     }
 }
