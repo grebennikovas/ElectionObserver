@@ -1,6 +1,6 @@
 TRUNCATE TABLE election.observer cascade;
 TRUNCATE TABLE election.region cascade;
-TRUNCATE TABLE election.station cascade;
+TRUNCATE TABLE election.commission cascade;
 TRUNCATE TABLE election.campaign cascade;
 TRUNCATE TABLE election.party cascade;
 TRUNCATE TABLE election.candidate cascade;
@@ -23,7 +23,7 @@ VALUES
 ('Липецк',2,4),
 ('Елец',2,4);
 
-INSERT INTO election.station (number,city_region_id,address,name,parent_id) VALUES
+INSERT INTO election.commission (number,city_region_id,address,name,parent_id) VALUES
 (32,2,'Студенческая ул, д 3','Территориальная избирательная комиссия №32 по району Дорогомилово',null),
 (34,2,'Случайная ул, д 34 к 1','Территориальная избирательная комиссия №32 по району Фили-Давыдково',null),
 (2562,2,'Кутузовский пр, д 15/3','Участковая избирательная комиссия №2562',1),

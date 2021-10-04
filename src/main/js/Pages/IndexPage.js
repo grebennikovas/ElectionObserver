@@ -7,7 +7,8 @@ import {
 import Typography from "@mui/material/Typography";
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from "@mui/material/Box";
-import "@fontsource/montserrat"
+
+require('typeface-montserrat');
 
 let theme = createTheme({
     typography: {
@@ -17,6 +18,9 @@ let theme = createTheme({
             lineHeight: 1.5,
         },
         fontFamily: 'Montserrat'
+    },
+    body: {
+        fontFamily: "Montserrat"
     }
 });
 theme = responsiveFontSizes(theme);

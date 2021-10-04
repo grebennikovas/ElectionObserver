@@ -13,9 +13,10 @@ import javax.persistence.*;
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "candidate_id")
+    @Column
     private Long id;
-    @Column(nullable = false, length = 150)
+    // ФИО кандидата
+    @Column(nullable = false, length = 255)
     private String name;
 
     public Candidate(String name) {

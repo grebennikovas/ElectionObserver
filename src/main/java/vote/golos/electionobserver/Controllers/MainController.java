@@ -19,7 +19,7 @@ public class MainController {
     @Autowired
     RegionServiceInterface regions;
     @Autowired
-    StationServiceInterface stations;
+    CommissionServiceInterface stations;
     @Autowired
     CampaignServiceInterface campaigns;
     @Autowired
@@ -41,16 +41,16 @@ public class MainController {
     @RequestMapping(value="/region/{region_id}/city", method = RequestMethod.GET)
     public ResponseEntity<Response<List<Region>>> getCitiesByRegion(@PathVariable long region_id){
         Region r = new Region();
-        r.setRegion_id(region_id);
+        r.setId(region_id);
         return new ResponseEntity<>(new Response<>("",regions.getCitiesOfRegion(r)), HttpStatus.OK);
     }
     @RequestMapping(value="/station", method = RequestMethod.GET)
-    public ResponseEntity<Response<List<Station>>> getStations(){
+    public ResponseEntity<Response<List<Commission>>> getStations(){
         return new ResponseEntity<>(new Response<>("",stations.getStation()), HttpStatus.OK);
     }
     @RequestMapping(value="/station/{station_id}/station", method = RequestMethod.GET)
-    public ResponseEntity<Response<List<Station>>> getStationByParent(@PathVariable long station_id){
-        Station s = new Station();
+    public ResponseEntity<Response<List<Commission>>> getStationByParent(@PathVariable long station_id){
+        Commission s = new Commission();
         s.setId(station_id);
         return new ResponseEntity<>(new Response<>("",stations.getStationByParent(s)), HttpStatus.OK);
     }

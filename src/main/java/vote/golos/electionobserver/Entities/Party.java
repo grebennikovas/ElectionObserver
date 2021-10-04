@@ -10,13 +10,16 @@ import javax.persistence.*;
 @Data
 @ToString
 @NoArgsConstructor
+// сравочник партий
 public class Party {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "party_id")
+    @Column
     private Long id;
+    // Наменование партии
     @Column(nullable = false, length = 150)
     private String name;
+    // кор. наименование партии
     @Column(nullable = false, length = 150, name = "short_name")
     private String shortName;
 

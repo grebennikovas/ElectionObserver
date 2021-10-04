@@ -2,12 +2,11 @@ package vote.golos.electionobserver.Repos;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import vote.golos.electionobserver.Entities.Region;
-import vote.golos.electionobserver.Entities.Station;
+import vote.golos.electionobserver.Entities.Commission;
 
 import java.util.List;
 
-public interface StationRepos extends JpaRepository<Station,Long> {
+public interface CommissionRepos extends JpaRepository<Commission,Long> {
     @EntityGraph(
             type = EntityGraph.EntityGraphType.FETCH,
             attributePaths = {
@@ -15,12 +14,12 @@ public interface StationRepos extends JpaRepository<Station,Long> {
                     "city.parent"
             }
     )
-    List<Station> findByParent(Station Parent);
+    List<Commission> findByParent(Commission Parent);
     @EntityGraph(
             type = EntityGraph.EntityGraphType.FETCH,
             attributePaths = {
                     "city.parent"
             }
     )
-    List<Station> findAllBy();
+    List<Commission> findAllBy();
 }
