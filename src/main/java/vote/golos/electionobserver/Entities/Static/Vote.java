@@ -9,24 +9,25 @@ import java.sql.Date;
 @Entity
 @Data
 @ToString
-public class Campaign {
+// Справочник голосований
+public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-    // первый день выборов
+    // первый день голосования
     @Column(nullable = false)
     private Date start_date;
-    // последний день выборов
+    // последний день голосования
     @Column(nullable = false)
     private Date end_date;
-    // наименование выборов
+    // наименование голосования
     @Column(nullable = false, length = 150)
     private String name;
-    // короткое наименование выборов
+    // короткое наименование голосования
     @Column(nullable = false, length = 150,name = "short_name")
     private String ShortName;
-    // регон, в котором проходят выборы
+    // регон, в котором проходит голосование
     @ManyToOne
     @JoinColumn(name = "region_id",nullable = false)
     private Region region;

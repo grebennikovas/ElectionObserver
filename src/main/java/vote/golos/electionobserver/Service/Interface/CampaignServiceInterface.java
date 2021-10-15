@@ -1,12 +1,12 @@
 package vote.golos.electionobserver.Service.Interface;
 
-import vote.golos.electionobserver.Entities.Static.Campaign;
+import vote.golos.electionobserver.Entities.Static.Vote;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CampaignServiceInterface {
-    public List<Campaign> getAll();
-    public Optional<Campaign> getCampaign(long id);
-    public Campaign addCampaign(Campaign campaign);
+    public List<Vote> getAll();
+    public Optional<Vote> getCampaign(long id);
+    public Vote addCampaign(Vote vote);
 }

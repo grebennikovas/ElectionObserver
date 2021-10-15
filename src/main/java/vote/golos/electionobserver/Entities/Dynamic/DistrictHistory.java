@@ -3,7 +3,7 @@ package vote.golos.electionobserver.Entities.Dynamic;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import vote.golos.electionobserver.Entities.Static.Campaign;
+import vote.golos.electionobserver.Entities.Static.Vote;
 import vote.golos.electionobserver.Entities.Static.District;
 
 import javax.persistence.*;
@@ -17,11 +17,11 @@ public class DistrictHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // выборы, в рамках которых задействован округ
+    // голосование, в рамках которых задействован округ
     @ManyToOne
-    @JoinColumn(name = "campaign_id", nullable = false)
-    private Campaign campaign;
-    // округ из справочника
+    @JoinColumn(name = "vote_id", nullable = false)
+    private Vote vote;
+    // округ, в котором проходит голосование
     @ManyToOne
     @JoinColumn(name = "district_id",nullable = false)
     private District district;

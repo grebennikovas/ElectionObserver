@@ -8,6 +8,7 @@ import vote.golos.electionobserver.Entities.Static.Observer;
 import vote.golos.electionobserver.Entities.Static.ObserverStatus;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity(name = "observer_history")
 @Data
@@ -20,8 +21,8 @@ public class ObserverHistory {
     private Long id;
     // наблюдатель из справочника
     @ManyToOne
-    @JoinColumn(name="observer_id", nullable = false)
-    private Observer observer;
+    @JoinColumn(name="coordinate_history_id", nullable = false)
+    private CoordinateHistory coordinateHistory;
     // кандидат\партия, которые назначают наблюдателя
     @ManyToOne
     @JoinColumn(name="candidate_history_id", nullable = false)
@@ -34,4 +35,7 @@ public class ObserverHistory {
     @ManyToOne
     @JoinColumn(name = "status_id", nullable = false)
     private ObserverStatus observerStatus;
+    @Column
+    Timestamp accepted;
+
 }

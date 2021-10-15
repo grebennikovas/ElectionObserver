@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import vote.golos.electionobserver.Entities.Static.Commission;
+import vote.golos.electionobserver.Entities.Static.Observer;
 
 import javax.persistence.*;
 
@@ -20,8 +21,17 @@ public class CommissionHistory {
     @ManyToOne
     @JoinColumn (name="commission_id", nullable = false)
     private Commission commission;
-    // округ, на котором располагается участок в конкретных выборах
+    // округ, которому принадлежит участок
     @ManyToOne
     @JoinColumn(name = "district_history_id",nullable = false)
     private DistrictHistory districtHistory;
+    // координатор, за которым закреплен участок
+    @ManyToOne
+    @JoinColumn
+    private Observer coordinator;
+    // председатель, назначивший координатора на участок
+    @ManyToOne
+    @JoinColumn
+    private Observer appointer;
+
 }

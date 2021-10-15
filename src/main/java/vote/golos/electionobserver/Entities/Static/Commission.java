@@ -8,27 +8,33 @@ import javax.persistence.*;
 @Entity
 @Data
 @ToString
-// Справочник всех участков
+// Справочник всех избирательных комиссий
 public class Commission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // номер участка
+    // номер комиссии
     private long number;
-    // город (регион) участка
+    // город (регион) комиссии
     @ManyToOne
     @JoinColumn(name = "region_id", nullable = false)
     private Region region;
-    // адрес участка
+    // адрес комиссии
     @Column(nullable = false, length = 255)
     private String address;
-    // наименование участка
+    // наименование комиссии
     @Column(nullable = false, length = 150)
     private String name;
     // вышестоящая комиссия (для УИК)
     @ManyToOne
     @JoinColumn(name = "parent_commission_id")
     private Commission parent;
+    // телефон комиссии
+    @Column(length = 20)
+    private String phone;
+    // почтовый ящик комиссии
+    @Column
+    private String email;
 
     public Commission(long number, Region region, String address, String name, Commission parent) {
         this.number = number;

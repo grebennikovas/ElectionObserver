@@ -55,11 +55,11 @@ public class MainController {
         return new ResponseEntity<>(new Response<>("",stations.getStationByParent(s)), HttpStatus.OK);
     }
     @RequestMapping(value="/campaign", method = RequestMethod.GET)
-    public ResponseEntity<Response<List<Campaign>>> getCampaigns(){
+    public ResponseEntity<Response<List<Vote>>> getCampaigns(){
         return new ResponseEntity<>(new Response<>("",campaigns.getAll()), HttpStatus.OK);
     }
     @RequestMapping(value="/campaign/{campaign_id}", method = RequestMethod.GET)
-    public ResponseEntity<Response<Optional<Campaign>>> getCampaignById(@PathVariable long campaign_id){
+    public ResponseEntity<Response<Optional<Vote>>> getCampaignById(@PathVariable long campaign_id){
         return new ResponseEntity<>(new Response<>("",campaigns.getCampaign(campaign_id)), HttpStatus.OK);
     }
     @RequestMapping(value="/candidate", method = RequestMethod.GET)

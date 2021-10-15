@@ -10,6 +10,7 @@ import java.sql.Date;
 @Data
 @ToString
 // справочник наблюдателей
+// TO DO: добавить роль
 public class Observer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +36,7 @@ public class Observer {
     // род деятельности
     private String activity;
     // комиссия, к которой прикреплен
-    private String commission;
+    // private String commission;
     // Регион (город) проживания
     @ManyToOne
     @JoinColumn(name="region_id",nullable = false)
@@ -49,7 +50,6 @@ public class Observer {
         this.birth = birth;
         this.education = education;
         this.activity = activity;
-        this.commission = commission;
         this.region = region;
     }
 
