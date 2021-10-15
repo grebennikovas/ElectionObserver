@@ -2,8 +2,7 @@ package vote.golos.electionobserver.Repos;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import vote.golos.electionobserver.Entities.Campaign;
-import vote.golos.electionobserver.Entities.Observer;
+import vote.golos.electionobserver.Entities.Static.Campaign;
 
 import java.util.List;
 

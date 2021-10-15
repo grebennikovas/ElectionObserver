@@ -1,14 +1,9 @@
-package vote.golos.electionobserver.Entities;
+package vote.golos.electionobserver.Entities.Static;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.ToString;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
-import java.util.List;
 
 @Entity
 @Data

@@ -1,6 +1,6 @@
 package vote.golos.electionobserver.Service.Interface;
 
-import vote.golos.electionobserver.Entities.Commission;
+import vote.golos.electionobserver.Entities.Static.Commission;
 
 import java.util.List;
 

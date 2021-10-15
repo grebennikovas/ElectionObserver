@@ -1,4 +1,4 @@
-package vote.golos.electionobserver.Entities;
+package vote.golos.electionobserver.Entities.Static;
 
 import lombok.Data;
 import lombok.ToString;

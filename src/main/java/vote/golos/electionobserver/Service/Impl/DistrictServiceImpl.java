@@ -2,7 +2,7 @@ package vote.golos.electionobserver.Service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vote.golos.electionobserver.Entities.District;
+import vote.golos.electionobserver.Entities.Static.District;
 import vote.golos.electionobserver.Repos.DistrictRepos;
 import vote.golos.electionobserver.Service.Interface.DistrictServiceInterface;
 

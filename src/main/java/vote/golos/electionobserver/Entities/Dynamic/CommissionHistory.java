@@ -1,8 +1,9 @@
-package vote.golos.electionobserver.Entities;
+package vote.golos.electionobserver.Entities.Dynamic;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import vote.golos.electionobserver.Entities.Static.Commission;
 
 import javax.persistence.*;
 
