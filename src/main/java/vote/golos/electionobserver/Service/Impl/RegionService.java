@@ -4,31 +4,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vote.golos.electionobserver.Entities.Static.Region;
 import vote.golos.electionobserver.Repos.RegionRepos;
+import vote.golos.electionobserver.Service.Interface.Crudable;
 import vote.golos.electionobserver.Service.Interface.RegionServiceInterface;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
-public class RegionServiceImpl implements RegionServiceInterface {
+public class RegionService implements Crudable<Region,Long> {
     @Autowired
     RegionRepos repos;
 
     @Override
-    public List<Region> getAll() {
-        return repos.findAll();
+    public Region add(Region value) {
+        return repos.saveAndFlush(value);
     }
 
     @Override
-    public Region addRegion(Region region) {
-        return repos.saveAndFlush(region);
+    public Optional<Region> findById(Long id) {
+        return repos.findById(id);
+    }
+
+    @Override
+    public List<Region> findAll() {
+        return repos.findAll();
     }
 
     public List<Region> getRegions(){
         return repos.findByRank(1);
     }
 
-    @Override
     public List<Region> getCitiesOfRegion(Region Parent) {
         return repos.findByParent(Parent);
     }
-
 }
