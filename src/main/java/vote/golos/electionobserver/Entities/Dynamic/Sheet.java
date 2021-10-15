@@ -3,7 +3,7 @@ package vote.golos.electionobserver.Entities.Dynamic;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import vote.golos.electionobserver.Entities.Static.Observer;
+import vote.golos.electionobserver.Entities.Static.Person;
 import vote.golos.electionobserver.Entities.Static.Region;
 import vote.golos.electionobserver.Entities.Static.Vote;
 
@@ -20,8 +20,8 @@ public class Sheet {
     private Long id;
     // наблюдатель из справочника
     @ManyToOne
-    @JoinColumn(name="observer_id", nullable = false)
-    private Observer observer;
+    @JoinColumn(name="person_id", nullable = false)
+    private Person person;
     // голосование
     @ManyToOne
     @JoinColumn(name="vote_id", nullable = false)

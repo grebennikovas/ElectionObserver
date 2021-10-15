@@ -2,11 +2,11 @@ package vote.golos.electionobserver.Repos;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import vote.golos.electionobserver.Entities.Static.Observer;
+import vote.golos.electionobserver.Entities.Static.Person;
 
 import java.util.List;
 
-public interface ObserverRepos extends JpaRepository<Observer,Long> {
+public interface ObserverRepos extends JpaRepository<Person,Long> {
     @EntityGraph(
             type = EntityGraph.EntityGraphType.FETCH,
             attributePaths = {
@@ -14,5 +14,5 @@ public interface ObserverRepos extends JpaRepository<Observer,Long> {
                     "region.parent"
             }
     )
-    List<Observer> findAll();
+    List<Person> findAll();
 }

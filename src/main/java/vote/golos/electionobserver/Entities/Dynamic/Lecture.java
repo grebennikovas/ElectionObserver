@@ -3,7 +3,7 @@ package vote.golos.electionobserver.Entities.Dynamic;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import vote.golos.electionobserver.Entities.Static.Observer;
+import vote.golos.electionobserver.Entities.Static.Person;
 import vote.golos.electionobserver.Entities.Static.Region;
 import vote.golos.electionobserver.Entities.Static.Theme;
 
@@ -25,8 +25,8 @@ public class Lecture {
     private Theme theme;
     // лектор
     @ManyToOne
-    @JoinColumn(name="reader", nullable = false)
-    private Observer reader;
+    @JoinColumn(name="person_id", nullable = false)
+    private Person person;
     // город лекции
     @ManyToOne
     @JoinColumn(name="region_id", nullable = false)

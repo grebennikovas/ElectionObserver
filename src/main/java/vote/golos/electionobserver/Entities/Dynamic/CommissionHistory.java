@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import vote.golos.electionobserver.Entities.Static.Commission;
-import vote.golos.electionobserver.Entities.Static.Observer;
+import vote.golos.electionobserver.Entities.Static.Person;
 
 import javax.persistence.*;
 
@@ -28,10 +28,10 @@ public class CommissionHistory {
     // координатор, за которым закреплен участок
     @ManyToOne
     @JoinColumn
-    private Observer coordinator;
+    private Person coordinator;
     // председатель, назначивший координатора на участок
     @ManyToOne
     @JoinColumn
-    private Observer appointer;
+    private Person appointer;
 
 }

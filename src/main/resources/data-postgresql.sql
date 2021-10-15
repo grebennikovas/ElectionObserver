@@ -1,4 +1,4 @@
-TRUNCATE TABLE election.observer cascade;
+TRUNCATE TABLE election.person cascade;
 TRUNCATE TABLE election.region cascade;
 TRUNCATE TABLE election.commission cascade;
 TRUNCATE TABLE election.vote cascade;
@@ -37,7 +37,7 @@ INSERT INTO election.vote(short_name,name,start_date,end_date,region_id) VALUES
 ('Поправки в конституцию','Голосование по поправкам в конституцию 2020','2020-06-25','2020-07-01',5),
 ('Горсовет Елец','Выборы в городской совет г.Ельца','2022-05-20','2022-05-20',6);
 
-INSERT INTO election.observer (activity,birth,commission,education,f_name,l_name,m_name,phone,region_region_id)
+INSERT INTO election.person (activity,birth,commission,education,f_name,l_name,m_name,phone,region_region_id)
 VALUES
 ('Студент','2000-03-01',null,'н/высшее','Иванов','Иван','Иванович','+79155542222',2),
 ('Студент','1988-06-13',null,'высшее','Берг','Василий',null,'+79155542223',2),

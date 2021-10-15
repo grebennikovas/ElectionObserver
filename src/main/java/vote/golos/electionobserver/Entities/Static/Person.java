@@ -11,7 +11,7 @@ import java.sql.Date;
 @ToString
 // справочник наблюдателей
 // TO DO: добавить роль
-public class Observer {
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -42,7 +42,7 @@ public class Observer {
     @JoinColumn(name="region_id",nullable = false)
     private Region region;
 
-    public Observer(String f_name, String l_name, String m_name, String phone, Date birth, String education, String activity, String commission,Region region) {
+    public Person(String f_name, String l_name, String m_name, String phone, Date birth, String education, String activity, String commission, Region region) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.m_name = m_name;
@@ -53,7 +53,7 @@ public class Observer {
         this.region = region;
     }
 
-    public Observer() {
+    public Person() {
 
     }
 }

@@ -29,7 +29,7 @@ public class MainController {
     @Autowired
     DistrictServiceInterface districts;
     @RequestMapping(value="/observer", method = RequestMethod.GET)
-    public ResponseEntity<Response<List<Observer>>> getObservers(){
+    public ResponseEntity<Response<List<Person>>> getObservers(){
         return new ResponseEntity<>(new Response<>("",observers.getAll()), HttpStatus.OK);
     }
 

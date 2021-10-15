@@ -8,12 +8,12 @@ import vote.golos.electionobserver.Entities.Static.Party;
 
 import javax.persistence.*;
 
-@Entity(name = "candidate_history")
+@Entity
 @Data
 @ToString
 @NoArgsConstructor
 // Кандидат\партия , который есть в бюллетене в определенном округе, может выдвигать наблюдателей
-public class CandidateHistory {
+public class Runner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

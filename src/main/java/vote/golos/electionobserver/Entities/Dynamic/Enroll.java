@@ -3,8 +3,7 @@ package vote.golos.electionobserver.Entities.Dynamic;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import vote.golos.electionobserver.Entities.Static.Observer;
-import vote.golos.electionobserver.Entities.Static.Theme;
+import vote.golos.electionobserver.Entities.Static.Person;
 
 import javax.persistence.*;
 
@@ -23,8 +22,8 @@ public class Enroll {
     private Lecture lecture;
     // наблюдатель
     @ManyToOne
-    @JoinColumn(name="observer_id", nullable = false)
-    private Observer observer;
+    @JoinColumn(name="person_id", nullable = false)
+    private Person person;
     // флаг посещения
     @Column(nullable = false)
     boolean visited;

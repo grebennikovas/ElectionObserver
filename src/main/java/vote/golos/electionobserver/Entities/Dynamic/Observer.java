@@ -4,29 +4,28 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import vote.golos.electionobserver.Entities.Static.Commission;
-import vote.golos.electionobserver.Entities.Static.Observer;
 import vote.golos.electionobserver.Entities.Static.ObserverStatus;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Entity(name = "observer_history")
+@Entity
 @Data
 @ToString
 @NoArgsConstructor
 // Наблюдатель на конкретных выборах
-public class ObserverHistory {
+public class Observer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // наблюдатель из справочника
     @ManyToOne
-    @JoinColumn(name="coordinate_history_id", nullable = false)
-    private CoordinateHistory coordinateHistory;
+    @JoinColumn(name="lead_id", nullable = false)
+    private Lead lead;
     // кандидат\партия, которые назначают наблюдателя
     @ManyToOne
-    @JoinColumn(name="candidate_history_id", nullable = false)
-    private CandidateHistory candidateHistory;
+    @JoinColumn(name="runner_id", nullable = false)
+    private Runner runner;
     // комиссия, в которую назначается наблюдатель
     @ManyToOne
     @JoinColumn(name = "commission_id", nullable = false)

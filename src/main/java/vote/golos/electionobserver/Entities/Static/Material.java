@@ -22,9 +22,14 @@ public class Material {
     @ManyToOne
     @JoinColumn(name = "theme_id")
     private Theme theme;
+    // кем опубликовани
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Theme person;
     // содержание
     @Column
     String body;
+    // дата публикации
     @Column
     Date date;
 }
