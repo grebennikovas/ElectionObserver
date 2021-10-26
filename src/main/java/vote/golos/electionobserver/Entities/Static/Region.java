@@ -1,6 +1,7 @@
 package vote.golos.electionobserver.Entities.Static;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @ToString
+@NoArgsConstructor
 // иерархический справочник регионов
 public class Region {
     @Id
@@ -25,14 +27,5 @@ public class Region {
     private Region parent;
     /*@OneToMany(mappedBy = "parent")
     private List<Region> children;*/
-
-    public Region(String name, Region parent) {
-        this.name = name;
-        this.parent = parent;
-        this.rank = parent.rank + 1;
-    }
-
-    public Region() {
-    }
 
 }

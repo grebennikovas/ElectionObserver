@@ -1,4 +1,4 @@
-package vote.golos.electionobserver.Service.Interface;
+package vote.golos.electionobserver.Service;
 
 import java.util.List;
 import java.util.Optional;

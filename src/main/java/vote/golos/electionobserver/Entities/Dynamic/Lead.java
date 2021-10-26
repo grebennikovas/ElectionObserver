@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @ToString
 @NoArgsConstructor
-// Участок в определенные выборы на определенном округе
+// Координаторы наблюдателей
 public class Lead {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Lead {
     @JoinColumn (name="person_id", nullable = false)
     private Person person;
     // координатор
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     private Person coordinator;
 }

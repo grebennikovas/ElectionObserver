@@ -1,4 +1,4 @@
-TRUNCATE TABLE election.person cascade;
+/*TRUNCATE TABLE election.person cascade;
 TRUNCATE TABLE election.region cascade;
 TRUNCATE TABLE election.commission cascade;
 TRUNCATE TABLE election.vote cascade;
@@ -59,4 +59,33 @@ INSERT INTO election.district(name,number,campaign_campaign_id,region_region_id)
 ('Бабушкинский одномандатный избирательный округ',196,1,2),
 ('Левобережный одномандатный избирательный округ',115,1,4),
 ('Басманный, Красносельский, Мещанский, Сокольники',45,2,2),
-('Избирательный округ №10',10,4,6);
+('Избирательный округ №10',10,4,6);*/
+
+TRUNCATE TABLE election.region cascade;
+TRUNCATE TABLE election.person cascade;
+TRUNCATE TABLE election.lead cascade;
+
+ALTER SEQUENCE election.region_id_seq RESTART WITH 1;
+ALTER SEQUENCE election.person_id_seq RESTART WITH 1;
+ALTER SEQUENCE election.lead_id_seq RESTART WITH 1;
+
+INSERT INTO election.region (name,rank,parent_region_id)
+VALUES
+('Российская Федерация',0,null),
+('Москва',1,1),
+('Санкт-Петербург',1,1),
+('Липецкая область',1,1),
+('Липецк',2,4),
+('Елец',2,4);
+
+INSERT INTO election.person(activity,birth,education,f_name,l_name,m_name,phone,region_id) VALUES
+('Студент','2000-03-01','н/высшее','Иванов','Иван','Иванович','+79155542222',2),
+('Студент','1988-06-13','высшее','Берг','Василий',null,'+79155542223',2),
+('Студент','2002-03-01','среднее общее','Лоскутов','Дмитрий','Алексеевич','+79155542224',3),
+('Студент','1999-03-01','н/высшее','Листов','Андрей','Максимович','+79155542225',5);
+
+INSERT INTO election.lead(coordinator_id,person_id) VALUES
+(1,2),
+(1,3),
+(1,4),
+(2,4);

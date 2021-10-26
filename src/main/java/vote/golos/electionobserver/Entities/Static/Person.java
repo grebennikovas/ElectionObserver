@@ -1,6 +1,7 @@
 package vote.golos.electionobserver.Entities.Static;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.sql.Date;
 @Entity
 @Data
 @ToString
+@NoArgsConstructor
 // справочник наблюдателей
 // TO DO: добавить роль
 public class Person {
@@ -42,18 +44,4 @@ public class Person {
     @JoinColumn(name="region_id",nullable = false)
     private Region region;
 
-    public Person(String f_name, String l_name, String m_name, String phone, Date birth, String education, String activity, String commission, Region region) {
-        this.f_name = f_name;
-        this.l_name = l_name;
-        this.m_name = m_name;
-        this.phone = phone;
-        this.birth = birth;
-        this.education = education;
-        this.activity = activity;
-        this.region = region;
-    }
-
-    public Person() {
-
-    }
 }
